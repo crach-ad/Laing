@@ -1,0 +1,485 @@
+@import "tailwindcss";
+
+/* =========================================
+   LAING LABS DESIGN SYSTEM
+   Inspired by Damn Good Brands aesthetic
+   ========================================= */
+
+/* Color Palette */
+:root {
+  /* Core Colors */
+  --color-primary: #000000;
+  --color-secondary: #FFFFFF;
+  --color-accent: #00D4FF;
+  --color-accent-alt: #7C3AED;
+  --color-muted: #71717A;
+  --color-surface: #18181B;
+
+  /* Semantic Colors */
+  --background: #000000;
+  --foreground: #FFFFFF;
+  --foreground-muted: #A1A1AA;
+  --border: #27272A;
+  --border-accent: #00D4FF;
+
+  /* Accent with alpha */
+  --accent-glow: rgba(0, 212, 255, 0.3);
+  --accent-subtle: rgba(0, 212, 255, 0.1);
+}
+
+/* Theme integration with Tailwind v4 */
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-accent: var(--color-accent);
+  --color-accent-alt: var(--color-accent-alt);
+  --color-muted: var(--color-muted);
+  --color-surface: var(--color-surface);
+  --font-sans: var(--font-inter);
+}
+
+/* =========================================
+   TYPOGRAPHY SCALE
+   Fluid typography using clamp()
+   ========================================= */
+
+.text-hero {
+  font-size: clamp(3rem, 8vw, 7rem);
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.text-h1 {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.text-h2 {
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.text-h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.text-body {
+  font-size: 1.125rem;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+.text-small {
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.text-nav {
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+/* =========================================
+   BASE STYLES
+   ========================================= */
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Selection styling */
+::selection {
+  background: var(--color-accent);
+  color: var(--color-primary);
+}
+
+/* Focus states */
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+/* =========================================
+   ANIMATION KEYFRAMES
+   ========================================= */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes glow {
+  0%, 100% {
+    box-shadow: 0 0 20px var(--accent-glow);
+  }
+  50% {
+    box-shadow: 0 0 40px var(--accent-glow), 0 0 60px var(--accent-glow);
+  }
+}
+
+@keyframes underline-grow {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+/* =========================================
+   ANIMATION UTILITY CLASSES
+   ========================================= */
+
+.animate-fade-in {
+  animation: fadeIn 0.6s ease-out forwards;
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.5s ease-out forwards;
+}
+
+.animate-slide-down {
+  animation: slideDown 0.5s ease-out forwards;
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.4s ease-out forwards;
+}
+
+.animate-pulse {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.animate-bounce {
+  animation: bounce 2s ease-in-out infinite;
+}
+
+.animate-glow {
+  animation: glow 2s ease-in-out infinite;
+}
+
+/* Staggered animation delays */
+.delay-100 { animation-delay: 100ms; }
+.delay-200 { animation-delay: 200ms; }
+.delay-300 { animation-delay: 300ms; }
+.delay-400 { animation-delay: 400ms; }
+.delay-500 { animation-delay: 500ms; }
+.delay-600 { animation-delay: 600ms; }
+.delay-700 { animation-delay: 700ms; }
+.delay-800 { animation-delay: 800ms; }
+
+/* Initial state for animations */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.animate-on-scroll.visible {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+/* =========================================
+   HOVER EFFECTS
+   ========================================= */
+
+/* Underline animation for links */
+.link-underline {
+  position: relative;
+}
+
+.link-underline::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--color-accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.link-underline:hover::after {
+  transform: scaleX(1);
+}
+
+/* Glow effect for buttons */
+.hover-glow {
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.hover-glow:hover {
+  box-shadow: 0 0 30px var(--accent-glow);
+  transform: translateY(-2px);
+}
+
+/* Scale effect for cards */
+.hover-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* Border color shift */
+.hover-border-accent {
+  transition: border-color 0.3s ease;
+}
+
+.hover-border-accent:hover {
+  border-color: var(--color-accent);
+}
+
+/* =========================================
+   CUSTOM COMPONENTS
+   ========================================= */
+
+/* Accent gradient background */
+.bg-accent-gradient {
+  background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-alt) 100%);
+}
+
+/* Glass effect */
+.glass {
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+/* Section padding */
+.section-padding {
+  padding-top: clamp(4rem, 10vw, 8rem);
+  padding-bottom: clamp(4rem, 10vw, 8rem);
+}
+
+/* Container with fluid padding */
+.container-fluid {
+  width: 100%;
+  padding-left: 5vw;
+  padding-right: 5vw;
+}
+
+/* Full bleed container */
+.full-bleed {
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+}
+
+/* Accent text color */
+.text-accent {
+  color: var(--color-accent);
+}
+
+/* Muted text color */
+.text-muted {
+  color: var(--foreground-muted);
+}
+
+/* Surface background */
+.bg-surface {
+  background: var(--color-surface);
+}
+
+/* Border accent */
+.border-accent {
+  border-color: var(--color-accent);
+}
+
+/* =========================================
+   FORM INPUTS (Dark Theme)
+   ========================================= */
+
+.input-dark {
+  width: 100%;
+  padding: 1rem 1.25rem;
+  background: var(--color-surface);
+  border: 1px solid var(--border);
+  border-radius: 0.5rem;
+  color: var(--foreground);
+  font-size: 1rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.input-dark::placeholder {
+  color: var(--color-muted);
+}
+
+.input-dark:focus {
+  outline: none;
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px var(--accent-subtle);
+}
+
+.input-dark:hover:not(:focus) {
+  border-color: #3f3f46;
+}
+
+/* =========================================
+   SCROLL INDICATOR
+   ========================================= */
+
+.scroll-indicator {
+  width: 24px;
+  height: 40px;
+  border: 2px solid var(--foreground-muted);
+  border-radius: 12px;
+  position: relative;
+}
+
+.scroll-indicator::before {
+  content: '';
+  position: absolute;
+  top: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 8px;
+  background: var(--foreground-muted);
+  border-radius: 2px;
+  animation: bounce 2s ease-in-out infinite;
+}
+
+/* =========================================
+   REDUCED MOTION
+   ========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* =========================================
+   GRAYSCALE IMAGES (for portfolio)
+   ========================================= */
+
+.grayscale-hover {
+  filter: grayscale(100%);
+  transition: filter 0.4s ease;
+}
+
+.grayscale-hover:hover {
+  filter: grayscale(0%);
+}
+
+/* =========================================
+   NUMBER STYLING (for process steps)
+   ========================================= */
+
+.number-large {
+  font-size: clamp(4rem, 10vw, 8rem);
+  font-weight: 900;
+  line-height: 1;
+  color: var(--color-accent);
+  opacity: 0.3;
+}
+
+/* =========================================
+   LOADING STATES
+   ========================================= */
+
+.loading-spinner {
+  width: 24px;
+  height: 24px;
+  border: 2px solid transparent;
+  border-top-color: currentColor;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
