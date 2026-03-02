@@ -2,6 +2,8 @@
 
 import Link from 'next/link';
 import { motion } from 'framer-motion';
+import WorkflowVisualization from '@/components/WorkflowVisualization';
+import caseStudyWorkflows from '@/data/caseStudyWorkflows';
 
 // Placeholder data - will be fetched from Supabase
 const caseStudies = [
@@ -94,6 +96,15 @@ export default function WorkPage() {
                         alt={study.title}
                         className="w-full h-full object-cover grayscale-hover transform group-hover:scale-105 transition-transform duration-700"
                       />
+                    ) : caseStudyWorkflows[study.slug] ? (
+                      <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-[#27272A] to-[#18181B] pointer-events-none">
+                        <WorkflowVisualization
+                          workflow={caseStudyWorkflows[study.slug]}
+                          autoPlay={true}
+                          showControls={false}
+                          compact={true}
+                        />
+                      </div>
                     ) : (
                       <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-[#27272A] to-[#18181B]">
                         <span className="text-[#71717A]">Project Image</span>

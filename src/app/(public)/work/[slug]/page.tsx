@@ -3,6 +3,8 @@
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { use } from 'react';
+import WorkflowVisualization from '@/components/WorkflowVisualization';
+import caseStudyWorkflows from '@/data/caseStudyWorkflows';
 
 // This will be fetched from Supabase based on slug
 const caseStudies: Record<string, {
@@ -196,11 +198,15 @@ export default function CaseStudyPage({
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="aspect-video rounded-xl overflow-hidden bg-[#18181B] border border-[#27272A]"
+              className="rounded-xl overflow-hidden bg-[#18181B] border border-[#27272A] py-8"
             >
-              <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-[#27272A] to-[#18181B]">
-                <span className="text-[#71717A]">Process Image</span>
-              </div>
+              {caseStudyWorkflows[slug] ? (
+                <WorkflowVisualization workflow={caseStudyWorkflows[slug]} />
+              ) : (
+                <div className="aspect-video flex items-center justify-center bg-gradient-to-br from-[#27272A] to-[#18181B]">
+                  <span className="text-[#71717A]">Process Image</span>
+                </div>
+              )}
             </motion.div>
 
             {/* Our Solution */}
