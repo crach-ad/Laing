@@ -62,7 +62,7 @@ export default function Header() {
             href="/"
             className="text-nav text-xl tracking-widest font-bold text-white hover:text-[#00D4FF] transition-colors duration-300"
           >
-            LAING LABS
+            EIGHTLABS
           </Link>
 
           {/* Desktop Navigation */}

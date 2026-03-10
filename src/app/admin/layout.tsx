@@ -11,7 +11,7 @@ export default function AdminLayout({
       <aside className="w-64 border-r border-zinc-200 bg-zinc-900 text-white dark:border-zinc-800">
         <div className="p-6">
           <Link href="/" className="text-xl font-bold">
-            Laing Labs
+            eightLabs
           </Link>
           <p className="mt-1 text-sm text-zinc-400">Admin</p>
         </div>

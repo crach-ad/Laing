@@ -80,7 +80,7 @@ export default function Footer() {
                 href="/"
                 className="text-xl font-bold tracking-widest text-white hover:text-[#00D4FF] transition-colors duration-300 uppercase"
               >
-                LAING LABS
+                EIGHTLABS
               </Link>
               <p className="text-sm text-[#71717A] mt-2">
                 Custom software solutions
@@ -124,7 +124,7 @@ export default function Footer() {
         <div className="container-fluid py-6">
           <p className="text-center text-sm text-[#71717A]">
             <span className="text-[#00D4FF]">&copy;</span>{' '}
-            {new Date().getFullYear()} Laing Labs. All rights reserved.
+            {new Date().getFullYear()} eightLabs. All rights reserved.
           </p>
         </div>
       </div>

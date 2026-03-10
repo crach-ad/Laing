@@ -207,7 +207,7 @@ export default function IntegrationShowcase() {
   });
 
   const centerHub = {
-    id: 'laing-labs',
+    id: 'eightlabs',
     name: 'Your Platform',
     icon: '⚡',
     color: '#00D4FF',

@@ -11,7 +11,7 @@ export default function DashboardLayout({
       <aside className="w-64 border-r border-zinc-200 bg-zinc-50 dark:border-zinc-800 dark:bg-zinc-900">
         <div className="p-6">
           <Link href="/" className="text-xl font-bold">
-            Laing Labs
+            eightLabs
           </Link>
           <p className="mt-1 text-sm text-zinc-500">Client Portal</p>
         </div>
